@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class CoursesController {
+public class AdminCoursesController {
     @Autowired
     private CourseService courseService;
     @GetMapping("/addCourse")
@@ -22,6 +22,12 @@ public class CoursesController {
     public String saveCourse(@ModelAttribute("addcourse") Courses courses){
         courseService.saveCourses(courses);
         System.out.println(courses);
-        return "redirect:/";
+        return "redirect:/savecourse";
     }
+    @GetMapping("/showcourse")
+    public String getAllCourse(Model model){
+        model.addAttribute("addcourse",courseService.getAllCourses());
+        return "AdminDashBoard";
+    }
+
 }
