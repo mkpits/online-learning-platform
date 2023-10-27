@@ -1,7 +1,9 @@
 package com.mkpits.learningplatform.service.impl;
 
 import com.mkpits.learningplatform.model.Courses;
+import com.mkpits.learningplatform.model.UserCourseEntity;
 import com.mkpits.learningplatform.repository.CourseRepo;
+import com.mkpits.learningplatform.repository.UserCourseRepo;
 import com.mkpits.learningplatform.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,8 @@ import java.util.List;
 public class ServiceImpl implements CourseService {
     @Autowired
     public CourseRepo courseRepo;
+    @Autowired
+    public UserCourseRepo userCourseRepo;
     @Override
     public List<Courses> getAllCourses() {
         return courseRepo.findAll();
@@ -35,4 +39,6 @@ public class ServiceImpl implements CourseService {
     public void deleteCourseById(Long id) {
         courseRepo.deleteById(id);
     }
+
+
 }

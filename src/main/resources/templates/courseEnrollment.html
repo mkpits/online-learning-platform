@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Enrollment Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="col-md-6 offset-md-3">
+    <div class="my-card mt-3">
+        <h1 class="text-center">Enroll For Courses  !!</h1>
+        <form th:action="@{/saveuserCourse}" th:object="${adduserCourse}" method="post">
+
+            <!--                       coursename-->
+            <div class="mb-3">
+                <label for="fullname" class="form-label">Enter Your Full Name</label>
+                <input type="text" class="form-control" id="fullname" aria-describedby="Help"
+                       placeholder="Enter here" required th:field="*{fullName}">
+            </div>
+
+            <!--                       // Email id-->
+            <div class="mb-3">
+                <label for="email" class="form-label">Your Email Id</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                       placeholder="Enter here" required th:field="*{email}">
+            </div>
+            <!--                       CourseName-->
+            <div class="mb-3">
+                <label for="coursename" class="form-label"> Course Name</label>
+                <input type="text" class="form-control" id="coursename" aria-describedby="emailHelp"
+                       th:field="*{userCourseName}">
+            </div>
+            <!--                            Enroll Date-->
+            <div class="mb-3">
+                <label for="enrolldate" class="form-label">Enroll Date</label>
+                <input type="date" class="form-control" id="enrolldate" aria-describedby="emailHelp"
+                       th:field="*{registerDate}">
+            </div>
+            <div class="container text-center" >
+                <button class="btn btn-primary text-white btn-block" type="submit" > Enroll</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
