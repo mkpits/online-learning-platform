@@ -8,5 +8,7 @@ import java.util.List;
 public interface UserCourseService {
     UserCourseEntity addUserCourse(UserCourseEntity userCourseEntity);
 
-    List<Courses> SeeAllCourses();
+    List<Courses> seeAllCourses();
+
+
 }

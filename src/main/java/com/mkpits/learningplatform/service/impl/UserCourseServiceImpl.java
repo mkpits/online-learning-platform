@@ -22,7 +22,7 @@ public class UserCourseServiceImpl implements UserCourseService {
     }
 
     @Override
-    public List<Courses> SeeAllCourses() {
+    public List<Courses> seeAllCourses() {
         return courseRepo.findAll();
     }
 

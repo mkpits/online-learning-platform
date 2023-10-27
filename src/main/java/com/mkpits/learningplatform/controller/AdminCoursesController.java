@@ -16,6 +16,10 @@ public class AdminCoursesController {
 
     @Autowired
     private UserCourseService userCourseService;
+    @GetMapping("/index")
+    public String index(){
+        return "AdminDashBoard";
+    }
     @GetMapping("/addCourse")
     public String addCourse(Model model){
         Courses courses=new Courses();
@@ -27,13 +31,20 @@ public class AdminCoursesController {
     public String saveCourse(@ModelAttribute("addcourse") Courses courses){
         courseService.saveCourses(courses);
         System.out.println(courses);
-        return "home";
+        return "AdminDashBoard";
     }
     @GetMapping("/showcourse")
     public String getAllCourse(Model model){
         model.addAttribute("addcourse",courseService.getAllCourses());
         return "AdminDashBoard";
     }
+
+    @GetMapping("/deletebycourseid/{id}")
+    public String deleteCourse(@PathVariable Long id){
+        courseService.deleteCourseById(id);
+        return "redirect:/AdminDashBoard";
+    }
+
 
 
 }

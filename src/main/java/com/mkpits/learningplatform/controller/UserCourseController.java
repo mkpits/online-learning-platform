@@ -14,20 +14,6 @@ public class UserCourseController {
     private UserCourseService userCourseService;
     @Autowired
     private CourseService courseService;
-    @GetMapping("/enrollCourse")
-    public String enrollCourse(Model model){
-        UserCourseEntity userCourseEntity=new UserCourseEntity();
-        model.addAttribute("adduserCourse",userCourseEntity);
-        return "courseEnrollment";
-    }
-
-
-    @RequestMapping(value = "/saveuserCourse", method = RequestMethod.POST)
-    public String userCourse(@ModelAttribute("adduserCourse") UserCourseEntity userCourseEntity){
-        userCourseService.addUserCourse(userCourseEntity);
-        System.out.println(userCourseEntity);
-        return "home";
-    }
 
     @GetMapping("/seecourse")
     public String getAllCourse(Model model){
