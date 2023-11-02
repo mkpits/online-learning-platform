@@ -40,10 +40,13 @@ public class AdminCoursesController {
     }
 
     @GetMapping("/deletebycourseid/{id}")
-    public String deleteCourse(@PathVariable Long id){
+    public String deleteCourse(@ModelAttribute @PathVariable Long id){
         courseService.deleteCourseById(id);
-        return "redirect:/AdminDashBoard";
+
+        return "redirect:/showcourse";
     }
+
+
 
 
 

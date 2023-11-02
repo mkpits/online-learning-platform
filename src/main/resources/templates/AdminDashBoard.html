@@ -43,7 +43,7 @@
 
         <ul class="navbar-nav ml-auto d-flex ms-auto " > <!-- Move the ul to the right (ml-auto) -->
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="addCourse.html">HOME</a>
+                <a class="nav-link active" aria-current="page" href="/addCourse">HOME</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ABOUT</a>
@@ -58,6 +58,7 @@
 </nav>
 
 <a href="/addCourse" class="btn btn-primary" > Add course !!</a>
+<a href="/showcourse" class="btn btn-primary" > show courses !!</a>
 <br>
 <table cellpadding="20" border="2" align="center">
     <tr>
@@ -71,9 +72,10 @@
                 <h5 class="card-title" th:text="${course.courseName}"></h5>
                 <p class="card-text" th:text="${course.description}"></p>
                 <p class="card-text" th:text="${course.instructionId}"></p>
-                <p class="card-title" th:text="${course.startDate}">start date:</p>
+                <p class="card-title" th:text="${course.startDate}">Course add date:</p>
                 <p class="card-title" th:text="${course.endDate}">end date:</p>
-                <a th:href="@{'/deletebycourseid/{id}' + ${course.courseId}}" class="btn btn-danger">Delete</a>
+                <a th:href="@{/deletebycourseid/{id}(id=${course.courseId})}"
+                   class="btn btn-danger">Delete</a>
 
 
             </div>

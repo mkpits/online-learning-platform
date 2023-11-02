@@ -40,5 +40,10 @@ public class ServiceImpl implements CourseService {
         courseRepo.deleteById(id);
     }
 
+    @Override
+    public Courses updateCourse(Courses courses) {
+        return courseRepo.save(courses);
+    }
+
 
 }
