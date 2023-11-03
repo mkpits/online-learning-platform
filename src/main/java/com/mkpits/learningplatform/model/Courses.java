@@ -1,7 +1,8 @@
 package com.mkpits.learningplatform.model;
 
-import jdk.jfr.Enabled;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
