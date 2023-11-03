@@ -1,4 +1,4 @@
-package com.mkpits.learningplatform.controller;
+package com.mkpits.learningplatform.controller.course;
 
 import com.mkpits.learningplatform.model.UserCourseEntity;
 import com.mkpits.learningplatform.service.CourseService;
@@ -16,8 +16,8 @@ public class UserCourseController {
     private CourseService courseService;
 
     @GetMapping("/seecourse")
-    public String getAllCourse(Model model){
-        model.addAttribute("seecourse",courseService.getAllCourses());
+    public String getAllCourse(Model model) {
+        model.addAttribute("seecourse", courseService.getAllCourses());
         return "userDashboard";
     }
 
