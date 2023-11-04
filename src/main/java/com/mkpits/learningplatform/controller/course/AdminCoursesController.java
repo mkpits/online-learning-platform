@@ -16,29 +16,29 @@ public class AdminCoursesController {
     @Autowired
     private UserCourseService userCourseService;
 
-    @GetMapping("/index")
+    @GetMapping("/admindashboard")
     public String index() {
-        return "AdminDashBoard";
+        return "admin-dashboard";
     }
 
     @GetMapping("/addCourse")
     public String addCourse(Model model) {
         Courses courses = new Courses();
         model.addAttribute("addcourse", courses);
-        return "addCourse";
+        return "add-course";
     }
 
     @RequestMapping(value = "/savecourse", method = RequestMethod.POST)
     public String saveCourse(@ModelAttribute("addcourse") Courses courses) {
         courseService.saveCourses(courses);
         System.out.println(courses);
-        return "AdminDashBoard";
+        return "admin-dashboard";
     }
 
     @GetMapping("/showcourse")
     public String getAllCourse(Model model) {
         model.addAttribute("addcourse", courseService.getAllCourses());
-        return "AdminDashBoard";
+        return "admin-dashboard";
     }
 
     @GetMapping("/deletebycourseid/{id}")

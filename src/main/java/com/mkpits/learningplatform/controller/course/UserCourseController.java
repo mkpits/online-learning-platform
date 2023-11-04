@@ -17,7 +17,7 @@ public class UserCourseController {
     @GetMapping("/seecourse")
     public String getAllCourse(Model model) {
         model.addAttribute("seecourse", courseService.getAllCourses());
-        return "userDashboard";
+        return "user-dashboard";
     }
 
 }
