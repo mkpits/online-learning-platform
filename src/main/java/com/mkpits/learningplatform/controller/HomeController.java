@@ -47,7 +47,7 @@ public class HomeController {
 
         model.addAttribute("title", "Courses - Online Learning");
 
-        return "courses";
+        return "admin-dashboard";
     }
 
 }
