@@ -22,7 +22,7 @@ public class UserCourseEntity {
     @Column(name = "email")
     private String email;
     @Column(name = "user_course_name")
-    private  String userCourseName;
+    private String userCourseName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "register_date")
     private Date registerDate;

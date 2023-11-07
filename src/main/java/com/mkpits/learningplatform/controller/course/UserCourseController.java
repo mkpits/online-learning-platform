@@ -1,12 +1,11 @@
-package com.mkpits.learningplatform.controller;
+package com.mkpits.learningplatform.controller.course;
 
-import com.mkpits.learningplatform.model.UserCourseEntity;
 import com.mkpits.learningplatform.service.CourseService;
 import com.mkpits.learningplatform.service.UserCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserCourseController {
@@ -16,9 +15,9 @@ public class UserCourseController {
     private CourseService courseService;
 
     @GetMapping("/seecourse")
-    public String getAllCourse(Model model){
-        model.addAttribute("seecourse",courseService.getAllCourses());
-        return "userDashboard";
+    public String getAllCourse(Model model) {
+        model.addAttribute("seecourse", courseService.getAllCourses());
+        return "user-dashboard";
     }
 
 }
