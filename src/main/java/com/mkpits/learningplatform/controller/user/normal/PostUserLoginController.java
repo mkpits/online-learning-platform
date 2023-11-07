@@ -25,39 +25,39 @@ public class PostUserLoginController {
         String enteredUsername = user.getEmail();
         String enteredPassword = user.getPassword();
 
-        User getUserFromDB = userService.getUserByUserName(enteredUsername);
-
-        String getUsernameFromDB = getUserFromDB.getEmail();
-        String getPasswordFromDB = getUserFromDB.getPassword();
-
         String returnValue = "";
 
-        if (enteredUsername.equals(getUsernameFromDB) && enteredPassword.equals(getPasswordFromDB)) {
+        User getSearchedUserFromDB = userService.getUserByUsernameAndPassword(enteredUsername, enteredPassword);
 
-            // ADMIN role login
-            if (getUserFromDB.getRoleValue().equals("ADMIN")) {
-                System.out.println("Admin Login Successfully of " + getUserFromDB.getDisplayName());
-                session.setAttribute("displayName", getUserFromDB.getDisplayName());
-//                session.setAttribute("loginMessage", new Message("Login Successful", "alert-success"));
+        try {
+            // null check
+            if (getSearchedUserFromDB == null) {
+                System.out.println("Something went wrong!!!!!");
+                throw new Exception("Invalid Username or Password");
+            }
+
+            // Admin role login
+            if (getSearchedUserFromDB.getRoleValue().equals("ADMIN")) {
+                System.out.println("Admin Login Successfully of " + getSearchedUserFromDB.getDisplayName());
+                session.setAttribute("displayName", getSearchedUserFromDB.getDisplayName());
+                session.setAttribute("loginMessage", new Message("Login Successful", "alert-success"));
 
                 returnValue = "redirect:/admin/dashboard";
             }
 
-            // STUDENT role login
-            if (getUserFromDB.getRoleValue().equals("STUDENT")) {
-                System.out.println("Student Login Successfully of " + getUserFromDB.getDisplayName());
-                session.setAttribute("displayName", getUserFromDB.getDisplayName());
-//                session.setAttribute("LoginMessage", new Message("Login Successful", "alert-success"));
+            // Student role login
+            if (getSearchedUserFromDB.getRoleValue().equals("STUDENT")) {
+                System.out.println("Student Login Successfully of " + getSearchedUserFromDB.getDisplayName());
+                session.setAttribute("displayName", getSearchedUserFromDB.getDisplayName());
+                session.setAttribute("loginMessage", new Message("Login Successful", "alert-success"));
 
                 returnValue = "redirect:/dashboard";
             }
 
-        } else {
-            System.out.println("Something went wrong");
-            model.addAttribute("user", user);
-//            session.setAttribute("errorMsg", new Message("Something went wrong!!! ", "alert-danger"));
-
-            returnValue = "user-login";
+        } catch (Exception exception) {
+            System.out.println("Invalid Username");
+            session.setAttribute("invalidCredentials", new Message("Invalid Credentials", "alert-danger"));
+            returnValue = "login";
         }
 
         return returnValue;

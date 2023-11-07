@@ -14,6 +14,13 @@
                 <!-- Start of Card -->
                 <div class="my-card mt-1">
 
+                    <!-- Alert Message -->
+                    <div th:if="${session.invalidCredentials}" th:classappend="${session.invalidCredentials.type}"
+                         class="alert" role="alert">
+                        <p class="text-center" th:text="${session.invalidCredentials.content}"></p>
+                        <th:block th:text="${#session.removeAttribute('invalidCredentials')}"></th:block>
+                    </div>
+
                     <!-- LOGO Field -->
                     <div class="container text-center">
                         <img th:src="@{/images/login-logo.png}" height="70px" width="120px"/>
