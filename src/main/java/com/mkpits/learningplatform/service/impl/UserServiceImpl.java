@@ -6,6 +6,8 @@ import com.mkpits.learningplatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -15,17 +17,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public User registerNewUser(User user) {
 
-        User user1 = new User();
+        user.setDisplayName(user.getDisplayName());
+        user.setEmail(user.getEmail());
+        user.setPassword(user.getPassword());
+        user.setMobileNumber(user.getMobileNumber());
+        user.setAge(user.getAge());
+        user.setRoleId(2);
+        user.setRoleValue("STUDENT");
+        user.setCreatedAt(LocalDateTime.now());
 
-        user1.setDisplayName(user.getDisplayName());
-        user1.setEmail(user.getEmail());
-        user1.setPassword(user.getPassword());
-        user1.setMobileNumber(user.getMobileNumber());
-        user1.setAge(user.getAge());
-        user1.setRoleId(2);
-        user1.setRoleValue("STUDENT");
-
-        User saveNewUser = userRepo.save(user1);
+        User saveNewUser = userRepo.save(user);
 
         return saveNewUser;
     }
