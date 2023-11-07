@@ -19,6 +19,7 @@
         <td colspan="3" align="center"><h1> Available Courses!!</h1></td>
     </tr>
     <tr >
+
         <td th:each="course: ${seecourse}"><div class="card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
@@ -27,6 +28,7 @@
                 <p class="card-text" th:text="${course.instructionId}"></p>
                 <p class="card-title" th:text="${course.startDate}">start date:</p>
                 <p class="card-title" th:text="${course.endDate}">end date:</p>
+
                 <button class="btn btn-primary" type="submit">Enroll</button>
 
             </div>
