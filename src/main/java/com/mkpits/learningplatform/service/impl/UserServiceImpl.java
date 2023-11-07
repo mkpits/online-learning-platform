@@ -30,4 +30,16 @@ public class UserServiceImpl implements UserService {
 
         return saveNewUser;
     }
+
+    @Override
+    public User getUserByUserName(String userName) {
+
+        User searchedUser = userRepo.getUserByUserName(userName);
+
+        if (searchedUser == null) {
+            throw new RuntimeException("invalid username");
+        }
+
+        return searchedUser;
+    }
 }

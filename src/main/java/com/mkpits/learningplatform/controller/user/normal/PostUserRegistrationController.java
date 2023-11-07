@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class UserRegistrationController {
+public class PostUserRegistrationController {
 
     @Autowired
     private UserService userService;

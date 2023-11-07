@@ -6,7 +6,54 @@
 </head>
 <body>
 <section>
-    <h1>This is login page</h1>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 offset-md-3">
+
+                <!-- Start of Card -->
+                <div class="my-card mt-1">
+
+                    <!-- LOGO Field -->
+                    <div class="container text-center">
+                        <img th:src="@{/images/login-logo.png}" height="70px" width="120px"/>
+                    </div>
+
+                    <form method="post" th:action="@{/login}" th:object="${user}">
+
+                        <!-- Email Field -->
+                        <div class="form-group">
+
+                            <label for="email">Username</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="Enter Email" required>
+                        </div>
+
+                        <!-- Mobile Number Field -->
+                        <div class="form-group">
+
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="Enter Password" required>
+                        </div>
+
+                        <!-- Buttons Field -->
+                        <div class="container text-center">
+                            <button type="submit" class="btn btn-success">Login</button>
+                            <br><br>
+                            <a href="#">Forgot password</a>
+                        </div>
+
+                    </form>
+                    <!-- Form Ended -->
+
+                </div>
+                <!-- End of Card -->
+
+            </div>
+
+        </div>
+    </div>
 </section>
 </body>
 </html>

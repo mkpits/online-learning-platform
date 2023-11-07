@@ -5,4 +5,6 @@ import com.mkpits.learningplatform.model.User;
 public interface UserService {
 
     User registerNewUser(User user);
+
+    User getUserByUserName(String userName);
 }
