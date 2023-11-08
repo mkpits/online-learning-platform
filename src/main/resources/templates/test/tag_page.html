@@ -76,9 +76,9 @@
             <hr>
             <br>
             <!--      form started-->
-            <form action="#" th:action="@{/getSelectedTagPage}" th:object="${tag}" method="post">
+            <form action="#" th:action="@{/getSelectedTagPage}" th:object="${topic}" method="post">
                 <!--         radio buttons -->
-                <input type="radio" class="btn-check" th:field="*{tag}" value=123 name="tag" id="option1" autocomplete="off">
+                <input type="radio" class="btn-check" th:field="*{tag}" value="CORE_JAVA" name="tag" id="option1" autocomplete="off">
                 <label class="btn" for="option1">CORE JAVA</label>
 
                 <input type="radio" class="btn-check" th:field="*{tag}" value="MY_SQL" name="tag" id="option2" autocomplete="off">

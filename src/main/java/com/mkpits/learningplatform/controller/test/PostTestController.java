@@ -12,7 +12,7 @@ public class PostTestController {
     @Autowired
     TestService testService;
     @PostMapping("/getSelectedTagPage")
-    public String getSelectedTagPage(@ModelAttribute("tag") Test test){
+    public String getSelectedTagPage(@ModelAttribute("topic") Test test){
             testService.getChoiceTagPage(test);
         return "test/selected_page";
     }

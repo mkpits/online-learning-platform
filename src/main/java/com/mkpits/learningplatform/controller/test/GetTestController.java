@@ -10,7 +10,7 @@ public class GetTestController {
     @GetMapping("/getTagPage")
     public String getTagPage(Model model){
         Test test = new Test();
-        model.addAttribute("tag",test);
+        model.addAttribute("topic",test);
         return "test/tag_page";
     }
 }
