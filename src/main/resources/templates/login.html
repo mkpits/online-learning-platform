@@ -36,7 +36,7 @@
                                    placeholder="Enter Email" required>
                         </div>
 
-                        <!-- Mobile Number Field -->
+                        <!--  Password Field -->
                         <div class="form-group">
 
                             <label for="password">Password</label>
@@ -47,10 +47,15 @@
                         <!-- Buttons Field -->
                         <div class="container text-center">
                             <button type="submit" class="btn btn-success">Login</button>
-                            <br><br>
-                            <a href="#">Forgot password</a>
+                            <br>
                         </div>
 
+                    </form>
+
+                    <form method="post" th:action="@{/forgot-password}">
+                        <div class="container text-center">
+                            <button type="submit" class="btn btn-link button">Forgot Password</button>
+                        </div>
                     </form>
                     <!-- Form Ended -->
 

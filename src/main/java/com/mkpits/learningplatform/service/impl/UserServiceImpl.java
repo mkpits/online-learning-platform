@@ -6,6 +6,7 @@ import com.mkpits.learningplatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
 @Service
@@ -36,10 +37,6 @@ public class UserServiceImpl implements UserService {
 
         User searchedUser = userRepo.getUserByUserName(userName);
 
-        if (searchedUser == null) {
-            throw new RuntimeException("invalid username");
-        }
-
         return searchedUser;
     }
 
@@ -49,5 +46,13 @@ public class UserServiceImpl implements UserService {
         User searchedUserFromDB = userRepo.getUserByUsernameAndPassword(username, password);
 
         return searchedUserFromDB;
+    }
+    @Override
+    @Transactional
+    public int resetUserPassword(String userName, String password) {
+
+        int resetPassword = userRepo.updatePasswordByEmail(userName, password);
+
+        return resetPassword;
     }
 }
