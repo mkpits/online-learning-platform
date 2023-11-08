@@ -9,4 +9,6 @@ public interface UserService {
     User getUserByUserName(String userName);
 
     User getUserByUsernameAndPassword(String username, String password);
+
+    int resetUserPassword(String userName, String password);
 }
