@@ -13,7 +13,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         if (!registry.hasMappingForPattern("/css/**")) {
             registry.addResourceHandler("/css/**")
-                    .addResourceLocations("/resources/static/css/");
+                    .addResourceLocations("/resources/static/");
         }
     }
 }
