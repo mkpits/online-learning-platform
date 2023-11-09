@@ -1,5 +1,7 @@
 package com.mkpits.learningplatform.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jdk.jfr.Timestamp;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,18 +18,18 @@ import java.time.LocalDateTime;
 public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "test_id")
     private long test_id;
-
+    @Column(name = "tag")
     private String tag;
-
+    @Column(name = "created_at")
     @DateTimeFormat(pattern = "yyyy-mm-dd HH:mm:ss")
     private LocalDateTime created_at;
-
+    @Column(name="created_by")
     private Long created_by;
-
+    @Column(name = "updated_at")
     @DateTimeFormat(pattern = "yyyy-mm-dd HH:mm:ss")
     private LocalDateTime updated_at;
-
+    @Column(name = "updated_by")
     private Long updated_by;
 }
