@@ -15,6 +15,7 @@ public class PostTestController {
     @PostMapping("/getSelectedTagPage")
     public String getSelectedTagPage(@ModelAttribute("topic") Test test, @RequestParam(name = "tag")String tag){
             testService.getChoiceTagPage(test);
+
             //requesting core java question page
             if(tag.equals("CORE_JAVA")){
                 return "test/core_java";
