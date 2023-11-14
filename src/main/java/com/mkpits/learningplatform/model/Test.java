@@ -1,7 +1,5 @@
 package com.mkpits.learningplatform.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jdk.jfr.Timestamp;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
