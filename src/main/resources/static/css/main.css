@@ -1,5 +1,5 @@
 body {
-    background: #e2e2e2;
+    background: #d2f5ae;
 }
 
 .bg-primary {
@@ -14,7 +14,7 @@ body {
 .banner {
     width: 100%;
     height: 91.4vh;
-    background: url("static/images/home-page-banner.jpg");
+    background: url("../images/home-page-banner.jpg");
     background-size: cover;
     /*opacity: 0.8;*/
     color: white;
