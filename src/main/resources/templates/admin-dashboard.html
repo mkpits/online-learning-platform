@@ -82,6 +82,9 @@
                     <p class="card-title" th:text="${course.endDate}">end date:</p>
                     <a th:href="@{/deletebycourseid/{id}(id=${course.courseId})}"
                        class="btn btn-danger">Delete</a>
+                    <a th:href="@{/course/edit/{id}(id=${course.courseId})}" class="btn btn-primary">
+                        Edit
+                    </a>
 
 
                 </div>
