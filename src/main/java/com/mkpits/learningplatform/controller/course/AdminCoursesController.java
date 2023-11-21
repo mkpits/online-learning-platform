@@ -41,7 +41,7 @@ public class AdminCoursesController {
         return "admin-dashboard";
     }
 
-    @GetMapping("/deletebycourseid/{id}")
+    @GetMapping("/deleteByCourseId/{id}")
     public String deleteCourse(@ModelAttribute @PathVariable Long id) {
         courseService.deleteCourseById(id);
 
