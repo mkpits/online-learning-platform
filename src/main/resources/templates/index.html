@@ -8,8 +8,24 @@
     <title th:text="${title}">Home</title>
 </head>
 <body>
-<section class="banner d-flex justify-content-center align-items-center">
+<section class="banner d-flex justify-content align-items-center">
+    <div class="container">
+        <div class="contentbox">
+            <h1>Skills For Your Future</h1>
+            <h1>Starts your technical journey with us</h1><br><br>
 
+            <h2>Let's get started</h2>
+
+            <div class="box text-center">
+                <form th:action="@{/login}" method="get">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <form th:action="@{/signup}" method="get">
+                    <button type="submit" class="btn btn-success">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
 </body>
 </html>
