@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class GetTestController {
     @GetMapping("/getTagPage")
-    public String getTagPage(Model model){
+    public String getTagPage(Model model) {
         Test test = new Test();
-        model.addAttribute("topic",test);
+        model.addAttribute("topic", test);
         return "test/tag_page";
     }
 }

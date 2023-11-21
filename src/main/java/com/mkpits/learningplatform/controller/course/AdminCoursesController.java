@@ -47,26 +47,27 @@ public class AdminCoursesController {
 
         return "redirect:/showcourse";
     }
-         @GetMapping("/course/edit/{id}")
-         public String editCourse(@PathVariable Long id,Model model){
-        model.addAttribute("course",courseService.getCoursebyId(id));
+
+    @GetMapping("/course/edit/{id}")
+    public String editCourse(@PathVariable Long id, Model model) {
+        model.addAttribute("course", courseService.getCoursebyId(id));
         return "courses/edit_course";
     }
 
-            @PostMapping("/courses/{id}")
-            public String updateCourse( @PathVariable Long id, @ModelAttribute("course") Courses courses, Model model){
+    @PostMapping("/courses/{id}")
+    public String updateCourse(@PathVariable Long id, @ModelAttribute("course") Courses courses, Model model) {
         // getting course from database by id
-                Courses existingCourse = courseService.getCoursebyId(id);
-                existingCourse.setCourseId(id);
-                existingCourse.setCourseName(courses.getCourseName());
-                existingCourse.setUpdatedBy(courses.getUpdatedBy());
-                existingCourse.setUpdatedAt((courses.getUpdatedAt()));
-                existingCourse.setDescription(courses.getDescription());
-                existingCourse.setCreatedBy(courses.getCreatedBy());
-                existingCourse.setCreatedAt(courses.getCreatedAt());
-                courseService.updateCourses(existingCourse);
-                return "redirect:/showcourse";
-            }
+        Courses existingCourse = courseService.getCoursebyId(id);
+        existingCourse.setCourseId(id);
+        existingCourse.setCourseName(courses.getCourseName());
+        existingCourse.setUpdatedBy(courses.getUpdatedBy());
+        existingCourse.setUpdatedAt((courses.getUpdatedAt()));
+        existingCourse.setDescription(courses.getDescription());
+        existingCourse.setCreatedBy(courses.getCreatedBy());
+        existingCourse.setCreatedAt(courses.getCreatedAt());
+        courseService.updateCourses(existingCourse);
+        return "redirect:/showcourse";
+    }
 
 
 }
