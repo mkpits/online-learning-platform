@@ -18,27 +18,27 @@ public class AdminCoursesController {
 
     @GetMapping("/admindashboard")
     public String index() {
-        return "admin-dashboard";
+        return "courses/course-dashboard";
     }
 
     @GetMapping("/addCourse")
     public String addCourse(Model model) {
         Courses courses = new Courses();
         model.addAttribute("addcourse", courses);
-        return "add-course";
+        return "courses/add-course";
     }
 
     @RequestMapping(value = "/savecourse", method = RequestMethod.POST)
     public String saveCourse(@ModelAttribute("addcourse") Courses courses) {
         courseService.saveCourses(courses);
         System.out.println(courses);
-        return "admin-dashboard";
+        return "courses/course-dashboard";
     }
 
     @GetMapping("/showcourse")
     public String getAllCourse(Model model) {
         model.addAttribute("addcourse", courseService.getAllCourses());
-        return "admin-dashboard";
+        return "courses/course-dashboard";
     }
 
     @GetMapping("/deleteByCourseId/{id}")
@@ -50,7 +50,7 @@ public class AdminCoursesController {
          @GetMapping("/course/edit/{id}")
          public String editCourse(@PathVariable Long id,Model model){
         model.addAttribute("course",courseService.getCoursebyId(id));
-        return "edit_course";
+        return "courses/edit_course";
     }
 
             @PostMapping("/courses/{id}")
