@@ -6,5 +6,5 @@ $(document).ready(function () {
     // Automatically slide to the next set every 2 seconds
     setInterval(function () {
         $('#courseCarousel').carousel('next');
-    }, 3500);
+    }, 2000);
 });

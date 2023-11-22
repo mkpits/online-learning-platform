@@ -54,10 +54,12 @@ body {
     margin: 20px;
 }
 
-.container {
-    text-align: center;
-}
-
 .course-card {
     padding: 15px;
+}
+.mb-4{
+    color:blue;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    align-content: center;
 }
