@@ -9,6 +9,6 @@ public class StudentDashboardController {
     @GetMapping("/dashboard")
     public String studentLogin() {
 
-        return "dashboard";
+        return "/normal-user/dashboard";
     }
 }

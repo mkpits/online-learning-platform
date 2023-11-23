@@ -12,10 +12,11 @@ import java.time.LocalDateTime;
 @Setter
 @Data
 @Builder
+@Table(name = "question")
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "question_i")
+    @Column(name = "question_id")
     private long question_id;
     @Column(name = "tag")
     private String tag;
