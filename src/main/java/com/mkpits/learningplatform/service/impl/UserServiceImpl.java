@@ -4,6 +4,7 @@ import com.mkpits.learningplatform.model.User;
 import com.mkpits.learningplatform.repository.UserRepo;
 import com.mkpits.learningplatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,11 +16,16 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
 
+//    @Autowired
+//    private BCryptPasswordEncoder passwordEncoder;
+
     @Override
     public User registerNewUser(User user) {
 
         user.setDisplayName(user.getDisplayName());
         user.setEmail(user.getEmail());
+        // encode password
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setPassword(user.getPassword());
         user.setMobileNumber(user.getMobileNumber());
         user.setAge(user.getAge());
@@ -47,6 +53,7 @@ public class UserServiceImpl implements UserService {
 
         return searchedUserFromDB;
     }
+
     @Override
     @Transactional
     public int resetUserPassword(String userName, String password) {
