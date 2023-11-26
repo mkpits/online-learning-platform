@@ -1,6 +1,7 @@
 package com.mkpits.learningplatform.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -24,11 +25,13 @@ public class Question {
     private String questions;
     @Column(name = "created_at")
     @DateTimeFormat(pattern = "yyyy-mm-dd hh:mm:ss")
+    @CreationTimestamp
     private LocalDateTime created_at;
     @Column(name = "created_by")
     private Long created_by;
     @Column(name = "updated_at")
     @DateTimeFormat(pattern = "yyyy-mm-dd hh:mm:ss")
+    @CreationTimestamp
     private LocalDateTime updated_at;
     @Column(name = "updated_by")
     private Long updated_by;
