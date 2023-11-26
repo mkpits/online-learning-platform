@@ -1,7 +1,9 @@
 package com.mkpits.learningplatform.controller.test;
 
+import com.mkpits.learningplatform.model.Options;
 import com.mkpits.learningplatform.model.Question;
 import com.mkpits.learningplatform.model.Test;
+import com.mkpits.learningplatform.service.OptionsService;
 import com.mkpits.learningplatform.service.QuestionService;
 import com.mkpits.learningplatform.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ public class PostTestController {
     TestService testService;
     @Autowired
     QuestionService questionService;
+    @Autowired
+    OptionsService optionsService;
     @PostMapping("/getSelectedTagPage")
     public String getSelectedTagPage(@ModelAttribute("topic") Test test, @RequestParam(name = "tag") String tag, Model model) {
         testService.getChoiceTagPage(test);

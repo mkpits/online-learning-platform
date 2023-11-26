@@ -1,6 +1,8 @@
 package com.mkpits.learningplatform.service.impl;
 
+import com.mkpits.learningplatform.model.Options;
 import com.mkpits.learningplatform.model.Question;
+import com.mkpits.learningplatform.repository.OptionsRepo;
 import com.mkpits.learningplatform.repository.QuestionRepo;
 import com.mkpits.learningplatform.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +14,14 @@ import java.util.List;
 public class QuestionServiceImpl implements QuestionService {
     @Autowired
     QuestionRepo questionRepo;
+    @Autowired
+    OptionsRepo optionsRepo;
+
     @Override
     public List<Question> getQuestionByTag(String tag) {
         List<Question> questionList = questionRepo.findByTag(tag);
         return questionList;
     }
+
+
 }
