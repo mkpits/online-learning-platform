@@ -32,6 +32,10 @@ public class PostTestController {
             // getting list of questions on core java page
             List<Question> questionsList = questionService.getQuestionByTag(tag);
             model.addAttribute("questions",questionsList);
+
+            List<Options> optionsList = optionsService.getQueAndOptByTag(tag);
+            model.addAttribute("options",optionsList);
+
             return "test/core_java";
         }
         //requesting Mysql question page
