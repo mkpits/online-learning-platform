@@ -6,6 +6,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,5 +37,8 @@ public class Question {
     private LocalDateTime updated_at;
     @Column(name = "updated_by")
     private Long updated_by;
+
+//    @OneToMany(mappedBy = "question")
+//    private List<Options> options;
 
 }

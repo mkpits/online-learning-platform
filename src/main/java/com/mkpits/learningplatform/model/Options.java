@@ -18,8 +18,8 @@ public class Options {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "option_id")
     private long option_id;
-    @Column(name = "que_id")
-    private long que_id;
+    @Column(name = "question_id")
+    private long question_id;
     @Column(name = "tag")
     private String tag;
     @Column(name = "que_option")
@@ -36,4 +36,7 @@ public class Options {
     private  LocalDateTime updated_at;
     @Column(name ="updated_by")
     private Long updated_by;
+//    @ManyToOne
+//    @JoinColumn(name = "question_id")
+//    Question question;
 }
