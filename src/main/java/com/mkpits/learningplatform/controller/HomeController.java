@@ -33,7 +33,7 @@ public class HomeController {
     }
 
     //     Login Handler
-    @RequestMapping("/login")
+    @RequestMapping("/signin")
     public String login(Model model) {
 
         model.addAttribute("title", "Login - Online Learning");

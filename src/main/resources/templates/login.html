@@ -6,64 +6,58 @@
 </head>
 <body>
 <section>
-    <div class="container">
-        <div class="row">
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" th:action="@{/signin}" method="post">
 
-            <div class="col-md-6 offset-md-3">
+                            <!-- logo field -->
+                            <div class="container text-center">
+                                <img th:src="@{/images/login-logo.png}" height="60px" width="85px"/>
+                            </div>
+                            <!-- Alert Message -->
 
-                <!-- Start of Card -->
-                <div class="my-card mt-1">
+                            <div th:if="${param.error}" class="alert alert-danger">
+                                Invalid username or password
+                            </div>
 
-                    <!-- Alert Message -->
-                    <div th:if="${session.invalidCredentials}" th:classappend="${session.invalidCredentials.type}"
-                         class="alert" role="alert">
-                        <p class="text-center" th:text="${session.invalidCredentials.content}"></p>
-                        <th:block th:text="${#session.removeAttribute('invalidCredentials')}"></th:block>
+                            <div th:if="${param.logout}" class="alert alert-danger">
+                                You have been logout
+                            </div>
+
+                            <!-- End alert Message -->
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input
+                                        id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-success btn-md" value="submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a th:href="@{/signup}" class="text-info">Register here</a>
+                            </div>
+                        </form>
+
+                        <div id="forgot-link">
+                            <form method="post" th:action="@{/forgot-password}">
+                                <div class="container text-right">
+                                    <input type="submit" class="bg-btn" id="forgot" value="Forgot Password">
+                                    <!--                                    <button type="submit" class="btn btn-link button">Forgot Password</button>-->
+                                </div>
+                            </form>
+                            <!--                            <a th:href="@{/forgot-password}" class="text-info">Forgot Password</a>-->
+                        </div>
                     </div>
-
-                    <!-- LOGO Field -->
-                    <div class="container text-center">
-                        <img th:src="@{/images/login-logo.png}" height="70px" width="120px"/>
-                    </div>
-
-                    <form method="post" th:action="@{/login}" th:object="${user}">
-
-                        <!-- Email Field -->
-                        <div class="form-group">
-
-                            <label for="email">Username</label>
-                            <input type="email" class="form-control" id="email" name="email"
-                                   placeholder="Enter Email" required>
-                        </div>
-
-                        <!--  Password Field -->
-                        <div class="form-group">
-
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password"
-                                   placeholder="Enter Password" required>
-                        </div>
-
-                        <!-- Buttons Field -->
-                        <div class="container text-center">
-                            <button type="submit" class="btn btn-success">Login</button>
-                            <br>
-                        </div>
-
-                    </form>
-
-                    <form method="post" th:action="@{/forgot-password}">
-                        <div class="container text-center">
-                            <button type="submit" class="btn btn-link button">Forgot Password</button>
-                        </div>
-                    </form>
-                    <!-- Form Ended -->
-
                 </div>
-                <!-- End of Card -->
-
             </div>
-
         </div>
     </div>
 </section>

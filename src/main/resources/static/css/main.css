@@ -10,6 +10,9 @@ body {
 .bg-btn {
     background: #8487d9;
 }
+.bg-btn #forgot{
+    border: aqua;
+}
 
 .banner {
     width: 100%;
@@ -57,12 +60,31 @@ body {
 .course-card {
     padding: 15px;
 }
-.mb-4{
+
+.mb-4 {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
     text-align: center;
 }
-#h2{
-    color:blue;
+
+#h2 {
+    color: blue;
 }
 
+
+/*login page css*/
+#login .container #login-row #login-column #login-box {
+    margin-top: 100px;
+    max-width: 800px;
+    height: 420px;
+    border: 1px solid #9C9C9C;
+    background-color: white;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}
+
+#login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+}
