@@ -1,11 +1,14 @@
 package com.mkpits.learningplatform.service.impl;
 
+import com.mkpits.learningplatform.dto.response.QuestionResponse;
 import com.mkpits.learningplatform.model.Options;
+import com.mkpits.learningplatform.model.Question;
 import com.mkpits.learningplatform.repository.OptionsRepo;
 import com.mkpits.learningplatform.service.OptionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 
@@ -17,4 +20,6 @@ public class OptionsServiceImpl implements OptionsService {
         List<Options> optionsList = optionsRepo.findQueAndOptionByTag(tag);
         return optionsList;
     }
+
+
 }

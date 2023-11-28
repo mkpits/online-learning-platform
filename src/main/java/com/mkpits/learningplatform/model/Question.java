@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -20,25 +21,31 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "question_id")
-    private long question_id;
+    private Long question_id;
+
     @Column(name = "tag")
     private String tag;
+
     @Column(name = "questions")
     private String questions;
+
+    @OneToMany(mappedBy = "question")
+    private List<Options> options;
+
     @Column(name = "created_at")
     @DateTimeFormat(pattern = "yyyy-mm-dd hh:mm:ss")
     @CreationTimestamp
     private LocalDateTime created_at;
+
     @Column(name = "created_by")
     private Long created_by;
+
     @Column(name = "updated_at")
     @DateTimeFormat(pattern = "yyyy-mm-dd hh:mm:ss")
     @CreationTimestamp
     private LocalDateTime updated_at;
+
     @Column(name = "updated_by")
     private Long updated_by;
-
-//    @OneToMany(mappedBy = "question")
-//    private List<Options> options;
 
 }

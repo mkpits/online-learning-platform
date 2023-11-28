@@ -11,7 +11,10 @@ import java.util.List;
 
 public interface OptionsRepo extends JpaRepository<Options,Long> {
 
-    @Query("select o.que_option from Options o inner join Question q on o.question_id = q.question_id where o.tag = :tag")
+    @Query("select o from Options o inner join Question q on o.question_id = q.question_id where o.tag = :tag")
     List<Options> findQueAndOptionByTag(@Param("tag") String tag);
+
+    @Query("select o from Options o inner join Question q on o.question_id = q.question_id where o.question_id = :questionId")
+    List<Options> findOptionByQuestionId(@Param("questionId") Long questionId);
 
 }
