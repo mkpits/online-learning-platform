@@ -10,7 +10,8 @@ body {
 .bg-btn {
     background: #8487d9;
 }
-.bg-btn #forgot{
+
+.bg-btn #forgot {
     border: aqua;
 }
 
@@ -71,6 +72,13 @@ body {
     color: blue;
 }
 
+/*User-Dashboard Logo*/
+
+#logo {
+    border-radius: 20px;
+    height: 40px;
+    width: 70px;
+}
 
 /*login page css*/
 #login .container #login-row #login-column #login-box {
