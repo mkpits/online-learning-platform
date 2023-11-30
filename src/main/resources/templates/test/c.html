@@ -9,6 +9,11 @@
 <ol>
     <li th:each="que : ${questions}">
         <span th:text="${que.questions}"></span>
+        <ol>
+            <li th:each="opt : ${que.options}">
+                <span th:text="${opt.que_option}"></span>
+            </li>
+        </ol>
     </li>
 </ol>
 </body>
