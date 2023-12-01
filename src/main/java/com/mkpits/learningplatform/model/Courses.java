@@ -1,112 +1,59 @@
 package com.mkpits.learningplatform.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 @Entity
+@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "courses")
 public class Courses {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "course_id")
     private long courseId;
-    private String courseName;
-    private String description;
-    private long instructionId;
-    private int createdBy;
-    private int updatedBy;
-    private Date updatedAt;
-    private Date createdAt;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false, insertable = false, updatable = false)
+    @Fetch(FetchMode.SELECT)
+    private User user;
+
+    @Column(name = "course_name")
+    private String courseName;
+
+    @Column(name = "course_description")
+    private String description;
+
+    @Column(name = "start_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
+
+    @Column(name = "end_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
 
-    public long getCourseId() {
-        return courseId;
-    }
+    @Column(name = "created_by")
+    private Long createdBy;
 
-    public void setCourseId(long courseId) {
-        this.courseId = courseId;
-    }
+    @Column(name = "updated_by")
+    private Long updatedBy;
 
-    public String getCourseName() {
-        return courseName;
-    }
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public long getInstructionId() {
-        return instructionId;
-    }
-
-    public void setInstructionId(long instructionId) {
-        this.instructionId = instructionId;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public int getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(int createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public int getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(int updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 }
