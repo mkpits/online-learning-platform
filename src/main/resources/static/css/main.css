@@ -96,3 +96,11 @@ body {
 #login .container #login-row #login-column #login-box #login-form #register-link {
     margin-top: -85px;
 }
+
+
+/*Home - Dashboard Logo*/
+#logo {
+    border-radius: 20px;
+    height: 40px;
+    width: 70px;
+}

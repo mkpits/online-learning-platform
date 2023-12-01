@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/1257957a37.js" crossorigin="anonymous"></script>
     <!-- My Stylesheet File link -->
 
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/student-base.css}">
 
     <title th:text="${title}">Base Html</title>
 
@@ -42,12 +42,12 @@
                         class="sr-only">(current)</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="#"><i class="fa-solid fa-user"></i>&nbsp;
                     <span th:text="${user.displayName}"></span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;Logout</a>
             </li>
         </ul>
