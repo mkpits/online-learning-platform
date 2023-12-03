@@ -4,7 +4,11 @@ import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,15 +30,23 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Courses> courses;
 
+    @NotBlank(message = "Name field is required")
+    @Size(min = 3, max = 30, message = "maximum 30 character accepted")
     @Column(name = "display_name")
     private String displayName;
 
+    @NotBlank(message = "email field is required")
+    @Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
     @Column(name = "email", unique = true)
     private String email;
 
+    @NotBlank(message = "Password field is required")
+//    @Size(min = 3,max = 10, message = "maximum 10 character accepted")
     @Column(name = "password")
     private String password;
 
+    @NotBlank(message = "Mobile Number field is required")
+    @Size(min = 10, max = 12, message = " Enter 10 digit mobile number")
     @Column(name = "mobile_number")
     private String mobileNumber;
 

@@ -34,25 +34,39 @@
 
                             <label for="displayName">Full Name</label>
                             <input type="text"
-                                   class="form-control" id="displayName" name="displayName"
-                                   placeholder="Enter full name " th:value="${user.displayName}"
-                                   required>
+                                   class="form-control"
+                                   id="displayName" name="displayName"
+                                   th:classappend="${#fields.hasErrors('displayName') ? 'is-invalid':''}"
+                                   placeholder="Enter full name " th:value="${user.displayName}"/>
+                            <div class="invalid-feedback" th:each="error : ${#fields.errors('displayName')}"
+                                 th:text="${error}">
+                            </div>
                         </div>
 
                         <!-- Email Field -->
                         <div class="form-group">
 
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email"
-                                   placeholder="Enter email" th:value="${user.email}" required>
+                            <input type="email" class="form-control"
+                                   id="email" name="email"
+                                   th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}"
+                                   placeholder="Enter email" th:value="${user.email}"/>
+                            <div class="invalid-feedback" th:each="error : ${#fields.errors('email')}"
+                                 th:text="${error}">
+                            </div>
                         </div>
 
                         <!-- Mobile Number Field -->
                         <div class="form-group">
 
                             <label for="mobileNumber">Mobile Number</label>
-                            <input type="text" class="form-control" id="mobileNumber" name="mobileNumber"
-                                   placeholder="Mobile Number" th:value="${user.mobileNumber}" required>
+                            <input type="text" class="form-control"
+                                   id="mobileNumber" name="mobileNumber"
+                                   th:classappend="${#fields.hasErrors('mobileNumber') ? 'is-invalid':''}"
+                                   placeholder="Mobile Number" th:value="${user.mobileNumber}"/>
+                            <div class="invalid-feedback" th:each="error : ${#fields.errors('mobileNumber')}"
+                                 th:text="${error}">
+                            </div>
                         </div>
 
                         <!--  Age Field -->
@@ -60,24 +74,28 @@
 
                             <label for="age">Age</label>
                             <input type="text" class="form-control" id="age" name="age"
-                                   placeholder="Age" th:value="${user.age}" required>
+                                   placeholder="Age" th:value="${user.age}" />
                         </div>
 
 
                         <!-- Password Field -->
                         <div class="form-group">
-
                             <label for="pass">Create Password</label>
-                            <input type="password" class="form-control" id="pass" name="password"
+                            <input type="password" class="form-control"
+                                   id="pass" name="password"
+                                   th:classappend="${#fields.hasErrors('password') ? 'is-invalid':''}"
                                    placeholder="Create password"
-                                   th:value="${user.password}"
-                                   required>
+                                   th:value="${user.password}"/>
+                            <div class="invalid-feedback" th:each="error : ${#fields.errors('password')}"
+                                 th:text="${error}">
+                            </div>
                         </div>
 
                         <!-- Terms & Conditions -->
 
                         <div class="form-group form-check">
-                            <input type="checkbox" name="agreement" class="form-check-input" id="agreement">
+                            <input type="checkbox" name="agreement"
+                                   class="form-check-input" id="agreement"/>
                             <lable for="agreement">
                                 Accept terms & conditions
                             </lable>
