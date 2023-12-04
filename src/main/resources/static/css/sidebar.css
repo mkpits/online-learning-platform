@@ -1,0 +1,74 @@
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        display: none;
+        width: 80% !important;
+        background: #290f1a;
+        height: 100vh;
+        position: fixed;
+        padding: 20px;
+    }
+
+    .content {
+        margin-left: 0% !important;
+    }
+}
+
+.sidebar {
+    width: 18%;
+    background: #290f1a;
+    height: 100%;
+    position: fixed;
+    padding: 40px;
+}
+
+.sidebar a {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar a:hover {
+    background: cornflowerblue;
+}
+
+.sidebar .divider#upper {
+    height: 1px;
+    width: 100%;
+    background: cornflowerblue;
+    margin-bottom: 10px;
+}
+
+.sidebar .divider#lower {
+    height: 1px;
+    width: 100%;
+    background: cornflowerblue;
+    margin-top: 10px;
+}
+
+.sidebar a i {
+    margin-right: 7px;
+}
+
+.sidebar .crossBtn {
+    position: absolute;
+    top: 0;
+    right: 35px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.content .barBtn {
+    position: fixed;
+    top: 65px;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+.content {
+    margin-left: 20%;
+}
