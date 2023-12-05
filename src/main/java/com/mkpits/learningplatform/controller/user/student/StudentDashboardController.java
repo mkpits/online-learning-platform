@@ -40,21 +40,21 @@ public class StudentDashboardController {
     @GetMapping("/profile")
     public String getProfile(Model model) {
 
-        model.addAttribute("title", "Admin - Profile");
+        model.addAttribute("title", "Student - Profile");
         return "student/student-profile";
     }
 
     @GetMapping("/settings")
     public String getSettings(Model model) {
 
-        model.addAttribute("title", "Admin - Settings");
+        model.addAttribute("title", "Student - Settings");
         return "student/student-settings";
     }
 
     @GetMapping("/courses")
     public String getCourses(Model model) {
 
-        model.addAttribute("title", "Admin - Courses");
+        model.addAttribute("title", "Student - Courses");
         return "student/student-courses";
     }
 }
