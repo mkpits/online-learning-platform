@@ -13,9 +13,18 @@
     }
 }
 
-.sidebar {
+.sidebar#adminSideBar {
     width: 18%;
     background: #290f1a;
+    height: 100%;
+    position: fixed;
+    padding: 40px;
+}
+
+
+.sidebar#studentSidebar {
+    width: 18%;
+    background: black;
     height: 100%;
     position: fixed;
     padding: 40px;
@@ -30,7 +39,7 @@
 }
 
 .sidebar a:hover {
-    background: cornflowerblue;
+    background: #3d5987;
 }
 
 .sidebar .divider#upper {

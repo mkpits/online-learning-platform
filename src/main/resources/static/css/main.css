@@ -104,3 +104,9 @@ body {
     height: 40px;
     width: 70px;
 }
+
+/*adjustment of logo on home*/
+
+div ul li a i{
+    margin-right: 5px;
+}
