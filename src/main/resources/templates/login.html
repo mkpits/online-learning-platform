@@ -23,7 +23,7 @@
                                 Invalid username or password
                             </div>
 
-                            <div th:if="${param.logout}" class="alert alert-danger">
+                            <div th:if="${param.logout}" class="alert alert-success">
                                 You have been logout
                             </div>
 
@@ -37,8 +37,10 @@
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input
-                                        id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+<!--                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input-->
+<!--                                        id="remember-me" name="remember-me" type="checkbox"></span>-->
+<!--                                </label>-->
+                                <br>
                                 <input type="submit" name="submit" class="btn btn-success btn-md" value="submit">
                             </div>
                             <div id="register-link" class="text-right">
