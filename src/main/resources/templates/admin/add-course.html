@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="admin/base-dashboard::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="${title}">Add Course</title>
+</head>
+<body>
+<section>
+    <div class="card mr-4">
+
+        <div class="card-body">
+
+            <!-- alert message box -->
+<!--            <div th:if="${session.message}" th:classappend="${session.message.type}"-->
+<!--                 class="alert text-center" role="alert">-->
+<!--                <p class="text-center" th:text="${session.message.content}"></p>-->
+<!--                <th:block th:text="${#session.removeAttribute('message')}"></th:block>-->
+<!--            </div>-->
+            <h1 class="text-center">Add Contact</h1>
+
+            <div class="container-fluid mt-1">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+
+                        <form class="mt-2"
+                              enctype="multipart/form-data"
+                              method="post"
+                              th:action="@{/savecourse}"
+                              th:object="${addCourse}">
+
+                            <!--    Course Name -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text mr-2">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                </div>
+                                <input type="text" id="courseName" name="courseName" placeholder="Enter Course Name"
+                                       class="form-control">
+                            </div>
+
+                            <!--    Course Name -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text mr-2">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                </div>
+                                <input type="text" id="description" name="description" placeholder="Enter Course description"
+                                       class="form-control">
+                            </div>
+
+<!--                            &lt;!&ndash;    Course description &ndash;&gt;-->
+<!--                            <div class="input-group mt-3">-->
+<!--                                <textarea placeholder="Enter Course Description" name="description"-->
+<!--                                          rows="8" class="form-control"></textarea>-->
+<!--                            </div>-->
+
+                            <!--    Start date-->
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text mr-2">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <input type="date" id="startDate" name="startDate" placeholder="Course Start Date"
+                                       class="form-control">
+                            </div>
+
+                            <!--    End date-->
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text mr-2">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <input type="date" id="endDate" name="endDate" placeholder="Course End Date"
+                                       class="form-control">
+                            </div>
+
+
+<!--                            &lt;!&ndash;    Course Image&ndash;&gt;-->
+<!--                            <div class="input-group mt-3">-->
+<!--                                <div class="input-group-prepend">-->
+<!--                                    <div class="input-group-text mr-2">-->
+<!--                                        <i class="fa-solid fa-image"></i>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="custom-file">-->
+<!--                                    <input type="file" name="profileImage" value="Profile Image">-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                            <div class="container text-center mt-4">
+                                <button class="btn btn-outline-primary bg-save-btn">
+                                    Save Course
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
